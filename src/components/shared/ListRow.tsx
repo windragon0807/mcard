@@ -5,6 +5,7 @@ import Flex from './Flex';
 import Text from './Text';
 
 type Props = {
+  as?: 'div' | 'li';
   left?: ReactNode;
   contents: ReactNode;
   right?: ReactNode;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function ListRow({
+  as = 'li',
   left,
   contents,
   right,
@@ -20,10 +22,10 @@ export default function ListRow({
   onClick,
 }: Props) {
   return (
-    <Flex align="center" as="li" onClick={onClick} css={listRowContainerStyles}>
+    <Flex align="center" as={as} onClick={onClick} css={listRowContainerStyles}>
       <Flex css={listRowLeftStyles}>{left}</Flex>
       <Flex css={listRowContentsStyles}>{contents}</Flex>
-      <Flex>{right}</Flex>
+      <Flex css={listRowArrowStyles}>{right}</Flex>
       {withArrow ? <IconArrowRight /> : null}
     </Flex>
   );
@@ -31,6 +33,7 @@ export default function ListRow({
 
 const listRowContainerStyles = css`
   padding: 8px 24px;
+  cursor: pointer;
 `;
 
 const listRowLeftStyles = css`
@@ -39,6 +42,10 @@ const listRowLeftStyles = css`
 
 const listRowContentsStyles = css`
   flex: 1;
+`;
+
+const listRowArrowStyles = css`
+  margin-right: 4px;
 `;
 
 type ListRowTextsProps = {

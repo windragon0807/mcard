@@ -127,7 +127,6 @@ export const card_list = [
   {
     name: 'FINETECH카드(대한항공)',
     corpName: 'KB국민카드',
-    promotion: '<p>KB국민카드 최대 18만원 캐시백</p>',
     tags: ['모든가맹점', '국내외가맹점', '면세점'],
     benefit: [
       '스타벅스 10% 할인',
