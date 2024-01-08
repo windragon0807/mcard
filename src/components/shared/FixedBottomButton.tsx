@@ -7,10 +7,11 @@ import Button from '@shared/Button';
 
 type Props = {
   label: string;
+  disabled?: boolean;
   onClick: () => void;
 };
 
-export default function FixedBottomButton({ label, onClick }: Props) {
+export default function FixedBottomButton({ label, onClick, disabled }: Props) {
   const $portalRoot = document.getElementById('root-portal');
 
   if ($portalRoot == null) {
@@ -19,7 +20,12 @@ export default function FixedBottomButton({ label, onClick }: Props) {
 
   return createPortal(
     <Container>
-      <Button size="medium" full onClick={onClick} css={buttonStyles}>
+      <Button
+        size="medium"
+        disabled={disabled}
+        full
+        onClick={onClick}
+        css={buttonStyles}>
         {label}
       </Button>
     </Container>,
