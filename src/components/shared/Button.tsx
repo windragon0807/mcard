@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 import {
   ButtonColor,
@@ -7,15 +7,15 @@ import {
   buttonColorMap,
   buttonWeakMap,
   buttonSizeMap,
-} from '@styles/button';
+} from '@styles/button'
 
 type Props = {
-  color?: ButtonColor;
-  size?: ButtonSize;
-  weak?: boolean;
-  full?: boolean;
-  disabled?: boolean;
-};
+  color?: ButtonColor
+  size?: ButtonSize
+  weak?: boolean
+  full?: boolean
+  disabled?: boolean
+}
 
 const Button = styled.button<Props>(
   {
@@ -41,6 +41,6 @@ const Button = styled.button<Props>(
           cursor: initial;
         `
       : undefined,
-);
+)
 
-export default Button;
+export default Button

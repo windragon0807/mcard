@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-import { colors } from '@styles/colorPalette';
+import { colors } from '@styles/colorPalette'
 
 const Input = styled.input`
   padding: 0 16px;
@@ -18,6 +18,6 @@ const Input = styled.input`
   &[aria-invalid='true'] {
     border-color: ${colors.red};
   }
-`;
+`
 
-export default Input;
+export default Input

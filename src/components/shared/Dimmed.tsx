@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 export default function Dimmed({ children }: Props) {
-  return <Container>{children}</Container>;
+  return <Container>{children}</Container>
 }
 
 const Container = styled.div`
@@ -16,4 +16,4 @@ const Container = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: var(--dimmed-zindex);
-`;
+`

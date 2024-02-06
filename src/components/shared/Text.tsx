@@ -1,17 +1,17 @@
-import { CSSProperties } from 'react';
-import styled from '@emotion/styled';
+import { CSSProperties } from 'react'
+import styled from '@emotion/styled'
 
-import { colors, Colors } from '@styles/colorPalette';
-import { Typography, typographyMap } from '@styles/typography';
+import { colors, Colors } from '@styles/colorPalette'
+import { Typography, typographyMap } from '@styles/typography'
 
 type Props = {
-  typography?: Typography;
-  color?: Colors;
-  display?: CSSProperties['display'];
-  textAlign?: CSSProperties['textAlign'];
-  fontWeight?: CSSProperties['fontWeight'];
-  bold?: boolean;
-};
+  typography?: Typography
+  color?: Colors
+  display?: CSSProperties['display']
+  textAlign?: CSSProperties['textAlign']
+  fontWeight?: CSSProperties['fontWeight']
+  bold?: boolean
+}
 
 const Text = styled.span<Props>(
   ({ color = 'black', display, textAlign, fontWeight, bold }) => ({
@@ -21,6 +21,6 @@ const Text = styled.span<Props>(
     fontWeight: bold ? 'bold' : fontWeight,
   }),
   ({ typography = 't5' }) => typographyMap[typography],
-);
+)
 
-export default Text;
+export default Text

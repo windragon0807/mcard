@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
 const {
   REACT_APP_API_KEY,
@@ -10,7 +10,7 @@ const {
   REACT_APP_MESSAGEING_SENDER_ID,
   REACT_APP_APP_ID,
   REACT_APP_MEASUREMENT_ID,
-} = process.env;
+} = process.env
 
 const firebaseConfig = {
   apiKey: REACT_APP_API_KEY,
@@ -20,8 +20,8 @@ const firebaseConfig = {
   messagingSenderId: REACT_APP_MESSAGEING_SENDER_ID,
   appId: REACT_APP_APP_ID,
   measurementId: REACT_APP_MEASUREMENT_ID,
-};
+}
 
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const store = getFirestore(app);
+export const app = initializeApp(firebaseConfig)
+export const auth = getAuth(app)
+export const store = getFirestore(app)

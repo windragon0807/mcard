@@ -1,6 +1,6 @@
-import Top from '@shared/Top';
-import AdBanners from '@components/home/AdBanners';
-import CardList from '@components/home/CardList';
+import Top from '@shared/Top'
+import AdBanners from '@components/home/AdBanners'
+import CardList from '@components/home/CardList'
 
 function HomePage() {
   return (
@@ -12,7 +12,7 @@ function HomePage() {
       <AdBanners />
       <CardList />
     </div>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage

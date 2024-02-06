@@ -1,16 +1,16 @@
-import { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { css } from '@emotion/react';
-import validator from 'validator';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react'
+import { css } from '@emotion/react'
+import validator from 'validator'
 
-import Flex from '@shared/Flex';
-import TextField from '@shared/TextField';
-import FixedBottomButton from '@shared/FixedBottomButton';
-import Spacing from '@shared/Spacing';
-import { FormValues } from '@models/signup';
+import Flex from '@shared/Flex'
+import TextField from '@shared/TextField'
+import FixedBottomButton from '@shared/FixedBottomButton'
+import Spacing from '@shared/Spacing'
+import { FormValues } from '@models/signup'
 
 type Props = {
-  onSubmit: (formValues: FormValues) => void;
-};
+  onSubmit: (formValues: FormValues) => void
+}
 
 export default function Form({ onSubmit }: Props) {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -18,26 +18,26 @@ export default function Form({ onSubmit }: Props) {
     password: '',
     rePassword: '',
     name: '',
-  });
-  const [dirty, setDirty] = useState<Partial<FormValues>>({});
+  })
+  const [dirty, setDirty] = useState<Partial<FormValues>>({})
 
   const handleFormValues = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setFormValues(prevFormValues => ({
       ...prevFormValues,
       [e.target.name]: e.target.value,
-    }));
-  }, []);
+    }))
+  }, [])
 
   const handleBlur = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setDirty(prevDirty => ({
       ...prevDirty,
       [e.target.name]: 'true',
-    }));
-  }, []);
+    }))
+  }, [])
 
-  const errors = useMemo(() => validate(formValues), [formValues]);
+  const errors = useMemo(() => validate(formValues), [formValues])
 
-  const 제출가능한상태인가 = Object.keys(errors).length === 0;
+  const 제출가능한상태인가 = Object.keys(errors).length === 0
 
   return (
     <Flex direction="column" css={formContainerStyles}>
@@ -91,35 +91,35 @@ export default function Form({ onSubmit }: Props) {
         onClick={() => onSubmit(formValues)}
       />
     </Flex>
-  );
+  )
 }
 
 const formContainerStyles = css`
   padding: 24px;
-`;
+`
 
 function validate(formValues: FormValues) {
-  let errors: Partial<FormValues> = {};
+  let errors: Partial<FormValues> = {}
 
   if (validator.isEmail(formValues.email) === false) {
-    errors.email = '이메일 형식을 확인해주세요';
+    errors.email = '이메일 형식을 확인해주세요'
   }
 
   if (formValues.password.length < 8) {
-    errors.password = '비밀번호를 8글자 이상 입력해주세요';
+    errors.password = '비밀번호를 8글자 이상 입력해주세요'
   }
 
   if (formValues.rePassword.length < 8) {
-    errors.rePassword = '비밀번호를 8글자 이상 입력해주세요';
+    errors.rePassword = '비밀번호를 8글자 이상 입력해주세요'
   } else if (
     validator.equals(formValues.rePassword, formValues.password) === false
   ) {
-    errors.rePassword = '비밀번호를 확인해주세요';
+    errors.rePassword = '비밀번호를 확인해주세요'
   }
 
   if (formValues.name.length < 2) {
-    errors.name = '이름은 2글자 이상 입력해주세요';
+    errors.name = '이름은 2글자 이상 입력해주세요'
   }
 
-  return errors;
+  return errors
 }

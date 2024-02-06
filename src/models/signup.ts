@@ -1,6 +1,6 @@
 export type FormValues = {
-  email: string;
-  password: string;
-  rePassword: string;
-  name: string;
-};
+  email: string
+  password: string
+  rePassword: string
+  name: string
+}

@@ -1,12 +1,12 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
-import Flex from './Flex';
-import Text from './Text';
+import Flex from './Flex'
+import Text from './Text'
 
 type Props = {
-  title: string;
-  subTitle: string;
-};
+  title: string
+  subTitle: string
+}
 
 export default function Top({ title, subTitle }: Props) {
   return (
@@ -16,9 +16,9 @@ export default function Top({ title, subTitle }: Props) {
       </Text>
       <Text typography="t7">{subTitle}</Text>
     </Flex>
-  );
+  )
 }
 
 const containerStyles = css`
   padding: 24px;
-`;
+`

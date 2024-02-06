@@ -1,18 +1,18 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-import { colors } from '@/styles/colorPalette';
-import Text from './Text';
-import Dimmed from './Dimmed';
-import Flex from './Flex';
-import Button from './Button';
+import { colors } from '@/styles/colorPalette'
+import Text from './Text'
+import Dimmed from './Dimmed'
+import Flex from './Flex'
+import Button from './Button'
 
 type Props = {
-  open?: boolean;
-  title: React.ReactNode;
-  description?: React.ReactNode;
-  buttonLabel?: string;
-  onButtonClick: () => void;
-};
+  open?: boolean
+  title: React.ReactNode
+  description?: React.ReactNode
+  buttonLabel?: string
+  onButtonClick: () => void
+}
 
 export default function Alert({
   open,
@@ -21,7 +21,7 @@ export default function Alert({
   buttonLabel = '확인',
   onButtonClick,
 }: Props) {
-  if (!open) return null;
+  if (!open) return null
 
   return (
     <Dimmed>
@@ -40,7 +40,7 @@ export default function Alert({
         </Flex>
       </AlertContainer>
     </Dimmed>
-  );
+  )
 }
 
 const AlertContainer = styled.div`
@@ -55,4 +55,4 @@ const AlertContainer = styled.div`
   width: 320px;
   padding: 24px;
   box-sizing: border-box;
-`;
+`

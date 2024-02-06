@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import ScrollToTop from '@shared/ScrollToTop';
-import Navbar from '@shared/Navbar';
-import HomePage from '@pages/Home';
-import TestPage from '@pages/Test';
-import CardPage from '@pages/Card';
-import SigninPage from '@pages/Signin';
-import SignupPage from '@pages/Signup';
+import ScrollToTop from '@shared/ScrollToTop'
+import Navbar from '@shared/Navbar'
+import HomePage from '@pages/Home'
+import TestPage from '@pages/Test'
+import CardPage from '@pages/Card'
+import SigninPage from '@pages/Signin'
+import SignupPage from '@pages/Signup'
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -21,7 +21,5 @@ function App() {
         <Route path="/test" Component={TestPage} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
-
-export default App;

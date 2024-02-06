@@ -1,30 +1,30 @@
-import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { css } from '@emotion/react';
-import { motion } from 'framer-motion';
+import { useParams } from 'react-router-dom'
+import { useQuery } from 'react-query'
+import { css } from '@emotion/react'
+import { motion } from 'framer-motion'
 
-import Top from '@shared/Top';
-import ListRow from '@shared/ListRow';
-import { getCard } from '@remote/card';
-import FixedBottomButton from '@shared/FixedBottomButton';
-import Flex from '@shared/Flex';
-import Text from '@shared/Text';
+import Top from '@shared/Top'
+import ListRow from '@shared/ListRow'
+import { getCard } from '@remote/card'
+import FixedBottomButton from '@shared/FixedBottomButton'
+import Flex from '@shared/Flex'
+import Text from '@shared/Text'
 
 export default function CardPage() {
-  const { id = '' } = useParams();
+  const { id = '' } = useParams()
 
   const { data } = useQuery(['card', id], () => getCard(id), {
     enabled: id !== '',
-  });
+  })
 
   if (data == null) {
-    return null;
+    return null
   }
 
-  const { name, corpName, promotion, tags, benefit } = data;
+  const { name, corpName, promotion, tags, benefit } = data
 
   const subTitle =
-    promotion != null ? removeHtmlTags(promotion.title) : tags.join(', ');
+    promotion != null ? removeHtmlTags(promotion.title) : tags.join(', ')
 
   return (
     <div>
@@ -67,7 +67,7 @@ export default function CardPage() {
 
       <FixedBottomButton label="신청하기" onClick={() => {}} />
     </div>
-  );
+  )
 }
 
 function IconCheck() {
@@ -88,29 +88,29 @@ function IconCheck() {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }
 
 function removeHtmlTags(text: string) {
-  let output = '';
+  let output = ''
 
   for (let i = 0; i < text.length; i += 1) {
     if (text[i] === '<') {
       for (let j = i + 1; j < text.length; j += 1) {
         if (text[j] === '>') {
-          i = j;
-          break;
+          i = j
+          break
         }
       }
     } else {
-      output += text[i];
+      output += text[i]
     }
   }
 
-  return output;
+  return output
 }
 
 const termsContainerStyles = css`
   margin-top: 80px;
   padding: 0 24px 80px 24px;
-`;
+`

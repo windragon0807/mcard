@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
 export const colorPalette = css`
   :root {
@@ -9,7 +9,7 @@ export const colorPalette = css`
     --black: #212121;
     --grey: #f0efef;
   }
-`;
+`
 
 export const colors = {
   red: 'var(--red)',
@@ -18,6 +18,6 @@ export const colors = {
   white: 'var(--white)',
   black: 'var(--black)',
   grey: 'var(--grey)',
-};
+}
 
-export type Colors = keyof typeof colors;
+export type Colors = keyof typeof colors

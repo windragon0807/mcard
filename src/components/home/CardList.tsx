@@ -1,12 +1,12 @@
-import { useCallback } from 'react';
-import { useInfiniteQuery } from 'react-query';
-import { flatten } from 'lodash';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react'
+import { useInfiniteQuery } from 'react-query'
+import { flatten } from 'lodash'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import { useNavigate } from 'react-router-dom'
 
-import { getCards } from '@remote/card';
-import ListRow from '@shared/ListRow';
-import Badge from '@shared/Badge';
+import { getCards } from '@remote/card'
+import ListRow from '@shared/ListRow'
+import Badge from '@shared/Badge'
 
 export default function CardList() {
   const {
@@ -16,23 +16,23 @@ export default function CardList() {
     isFetching,
   } = useInfiniteQuery(['cards'], ({ pageParam }) => getCards(pageParam), {
     getNextPageParam: snapshot => snapshot.lastVisible,
-  });
+  })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const loadMore = useCallback(() => {
     if (hasNextPage === false || isFetching) {
-      return;
+      return
     }
 
-    fetchNextPage();
-  }, [fetchNextPage, hasNextPage, isFetching]);
+    fetchNextPage()
+  }, [fetchNextPage, hasNextPage, isFetching])
 
   if (data == null) {
-    return null;
+    return null
   }
 
-  const cards = flatten(data?.pages.map(({ items }) => items));
+  const cards = flatten(data?.pages.map(({ items }) => items))
 
   return (
     <InfiniteScroll
@@ -56,5 +56,5 @@ export default function CardList() {
         ))}
       </ul>
     </InfiniteScroll>
-  );
+  )
 }

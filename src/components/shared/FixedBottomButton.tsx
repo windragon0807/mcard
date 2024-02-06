@@ -1,21 +1,21 @@
-import { createPortal } from 'react-dom';
-import { css, keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import { createPortal } from 'react-dom'
+import { css, keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import { colors } from '@styles/colorPalette';
-import Button from '@shared/Button';
+import { colors } from '@styles/colorPalette'
+import Button from '@shared/Button'
 
 type Props = {
-  label: string;
-  disabled?: boolean;
-  onClick: () => void;
-};
+  label: string
+  disabled?: boolean
+  onClick: () => void
+}
 
 export default function FixedBottomButton({ label, onClick, disabled }: Props) {
-  const $portalRoot = document.getElementById('root-portal');
+  const $portalRoot = document.getElementById('root-portal')
 
   if ($portalRoot == null) {
-    return null;
+    return null
   }
 
   return createPortal(
@@ -30,14 +30,14 @@ export default function FixedBottomButton({ label, onClick, disabled }: Props) {
       </Button>
     </Container>,
     $portalRoot,
-  );
+  )
 }
 
 const slideup = keyframes`
   to {
     transform: translateY(0);
   }
-`;
+`
 
 const Container = styled.div`
   position: fixed;
@@ -48,8 +48,8 @@ const Container = styled.div`
   padding: 20px 10px 8px;
   transform: translateY(100%);
   animation: ${slideup} 0.5s ease-in-out forwards;
-`;
+`
 
 const buttonStyles = css`
   border-radius: 8px;
-`;
+`

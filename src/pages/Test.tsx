@@ -1,5 +1,5 @@
-import CardListAddButton from '@components/test/CardListAddButton';
-import AdBannerListAddButton from '@components/test/AdBannerListAddButton';
+import CardListAddButton from '@components/test/CardListAddButton'
+import AdBannerListAddButton from '@components/test/AdBannerListAddButton'
 
 function TestPage() {
   return (
@@ -7,7 +7,7 @@ function TestPage() {
       <CardListAddButton />
       <AdBannerListAddButton />
     </div>
-  );
+  )
 }
 
-export default TestPage;
+export default TestPage

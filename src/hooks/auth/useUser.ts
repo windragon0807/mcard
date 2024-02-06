@@ -1,6 +1,6 @@
-import { useRecoilValue } from 'recoil';
-import { userAtom } from '@atoms/user';
+import { useRecoilValue } from 'recoil'
+import { userAtom } from '@atoms/user'
 
 export default function useUser() {
-  return useRecoilValue(userAtom);
+  return useRecoilValue(userAtom)
 }

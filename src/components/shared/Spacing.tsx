@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 type Props = {
-  size: number;
-  direction?: 'vertical' | 'horizontal';
-};
+  size: number
+  direction?: 'vertical' | 'horizontal'
+}
 
 const Spacing = styled.div<Props>`
   ${({ size, direction = 'vertical' }) =>
@@ -14,6 +14,6 @@ const Spacing = styled.div<Props>`
       : `
         width: ${size}px;
       `}
-`;
+`
 
-export default Spacing;
+export default Spacing

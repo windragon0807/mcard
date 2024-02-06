@@ -1,26 +1,26 @@
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { FirebaseError } from 'firebase/app';
+import { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { FirebaseError } from 'firebase/app'
 
-import { auth } from '@remote/firebase';
-import Form from '@components/signin/Form';
-import { FormValues } from '@models/signin';
-import { useAlertContext } from '@contexts/AlertContext';
+import { auth } from '@remote/firebase'
+import Form from '@components/signin/Form'
+import { FormValues } from '@models/signin'
+import { useAlertContext } from '@contexts/AlertContext'
 
 export default function SigninPage() {
-  const navigate = useNavigate();
-  const { open } = useAlertContext();
+  const navigate = useNavigate()
+  const { open } = useAlertContext()
 
   const handleSubmit = useCallback(
     async (formValues: FormValues) => {
-      const { email, password } = formValues;
+      const { email, password } = formValues
 
       try {
         // Firebase 로그인
-        await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password)
 
-        navigate('/');
+        navigate('/')
       } catch (e) {
         // Firebase 에러
         if (e instanceof FirebaseError) {
@@ -30,9 +30,9 @@ export default function SigninPage() {
               onButtonClick: () => {
                 //
               },
-            });
+            })
 
-            return;
+            return
           }
         }
 
@@ -42,15 +42,15 @@ export default function SigninPage() {
           onButtonClick: () => {
             //
           },
-        });
+        })
       }
     },
     [open],
-  );
+  )
 
   return (
     <div>
       <Form onSubmit={handleSubmit} />
     </div>
-  );
+  )
 }

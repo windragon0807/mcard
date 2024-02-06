@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { colorPalette } from './colorPalette';
+import { css } from '@emotion/react'
+import { colorPalette } from './colorPalette'
 
 export default css`
   /* Color Palette */
@@ -151,4 +151,4 @@ export default css`
     color: inherit;
     text-decoration: inherit;
   }
-`;
+`
