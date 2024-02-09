@@ -7,12 +7,11 @@ import { ApplyValues } from '@models/apply'
 import { css } from '@emotion/react'
 
 type CardInfoValues = Pick<ApplyValues, 'isMaster' | 'isRf' | 'isHipass'>
-
-export default function CardInfo({
-  onNext,
-}: {
+type Props = {
   onNext: (cardInfoValues: CardInfoValues) => void
-}) {
+}
+
+export default function CardInfo({ onNext }: Props) {
   const [cardInfoValues, setCardInfoValues] = useState<CardInfoValues>({
     isMaster: false,
     isRf: false,

@@ -7,12 +7,11 @@ import { 연소득옵션, 신용점수옵션, 결제일옵션 } from '@constants
 import { ApplyValues } from '@models/apply'
 
 type InfoValues = Pick<ApplyValues, 'salary' | 'creditScore' | 'payDate'>
-
-export default function BasicInfo({
-  onNext,
-}: {
+type Props = {
   onNext: (infoValues: InfoValues) => void
-}) {
+}
+
+export default function BasicInfo({ onNext }: Props) {
   const [infoValues, setInfoValues] = useState<InfoValues>({
     salary: '',
     creditScore: '',

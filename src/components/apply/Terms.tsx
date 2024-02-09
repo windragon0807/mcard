@@ -5,11 +5,11 @@ import FixedBottomButton from '@shared/FixedBottomButton'
 import { 약관목록 } from '@constants/apply'
 import { ApplyValues } from '@models/apply'
 
-export default function Terms({
-  onNext,
-}: {
+type Props = {
   onNext: (terms: ApplyValues['terms']) => void
-}) {
+}
+
+export default function Terms({ onNext }: Props) {
   const [termsAgreements, setTermsAgreements] = useState(() => {
     return 약관목록.reduce<Record<string, boolean>>(
       (prev, term) => ({

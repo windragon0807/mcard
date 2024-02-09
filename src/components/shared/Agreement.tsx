@@ -5,7 +5,11 @@ import Flex from './Flex'
 import Text from './Text'
 import { colors } from '@styles/colorPalette'
 
-export default function Agreement({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function Agreement({ children }: Props) {
   return (
     <Flex as="ul" direction="column" css={agreementContainerStyles}>
       {children}
