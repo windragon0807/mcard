@@ -1,12 +1,19 @@
 import { User } from './user'
 
-export interface Term {
+export type Term = {
   id: string
   link?: string
   title: string
 }
 
-export interface ApplyValues {
+export const APPLY_STATUS = {
+  READY: 'READY',
+  PROGRESS: 'PROGRESS',
+  COMPLETE: 'COMPLETE',
+  REJECT: 'REJECT',
+} as const
+
+export type ApplyValues = {
   userId: User['uid']
   terms: Array<Term['id']>
   appliedAt: Date
@@ -17,9 +24,10 @@ export interface ApplyValues {
   isMaster: boolean
   isHipass: boolean
   isRf: boolean
+  status: keyof typeof APPLY_STATUS
 }
 
-export interface Option {
+export type Option = {
   label: string
   value: string | number | undefined
 }
