@@ -25,6 +25,7 @@ export type ApplyValues = {
   isHipass: boolean
   isRf: boolean
   status: keyof typeof APPLY_STATUS
+  step: number
 }
 
 export type Option = {
