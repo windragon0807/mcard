@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useInfiniteQuery } from 'react-query'
-import { flatten } from 'lodash'
+import flatten from 'lodash.flatten'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useNavigate } from 'react-router-dom'
 
