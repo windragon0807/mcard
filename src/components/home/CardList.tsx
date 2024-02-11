@@ -16,6 +16,7 @@ export default function CardList() {
     isFetching,
   } = useInfiniteQuery(['cards'], ({ pageParam }) => getCards(pageParam), {
     getNextPageParam: snapshot => snapshot.lastVisible,
+    suspense: true,
   })
 
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ export default function CardList() {
     <InfiniteScroll
       dataLength={cards.length} // 현재 로드된 아이템의 개수
       hasMore={hasNextPage} // 다음 페이지가 있는지 여부
-      loader={<></>} // 기다리는 동안 보여줄 컴포넌트
+      loader={<ListRow.Skeleton />} // 기다리는 동안 보여줄 컴포넌트
       next={loadMore} // 다음 페이지를 불러올 함수
       scrollThreshold="100px" // 다음 페이지를 불러올 위치
     >
