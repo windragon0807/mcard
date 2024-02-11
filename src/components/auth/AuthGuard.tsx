@@ -21,6 +21,7 @@ export default function AuthGuard({ children }: Props) {
         uid: user.uid,
         email: user.email ?? '',
         displayName: user.displayName ?? '',
+        photoURL: user.photoURL ?? '',
       })
     } else {
       setUser(null)
