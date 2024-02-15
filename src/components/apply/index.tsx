@@ -6,6 +6,9 @@ import BasicInfo from '@components/apply/BasicInfo'
 import CardInfo from '@components/apply/CardInfo'
 import { ApplyValues, APPLY_STATUS } from '@models/apply'
 import useUser from '@hooks/auth/useUser'
+import ProgressBar from '@shared/ProgressBar'
+
+const LAST_STEP = 3
 
 type Props = {
   onSubmit: (applyValues: ApplyValues) => void
@@ -74,6 +77,7 @@ export default function Apply({ onSubmit }: Props) {
 
   return (
     <div>
+      <ProgressBar progress={(applyValues.step as number) / LAST_STEP} />
       {applyValues.step === 0 ? <Terms onNext={handleTermsChange} /> : null}
       {applyValues.step === 1 ? (
         <BasicInfo onNext={handleBasicInfoChange} />
