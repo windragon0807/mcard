@@ -151,4 +151,10 @@ export default css`
     color: inherit;
     text-decoration: inherit;
   }
+
+  body {
+    width: 100dvw;
+    height: 100dvh;
+    overflow-x: hidden;
+  }
 `
